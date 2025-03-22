@@ -1,0 +1,71 @@
+# 应用配置
+
+# 监控配置
+monitoring:
+  interval: 5s  # 监控间隔
+  metrics:
+    - response_time
+    - connection_count
+    - error_rate
+    - bandwidth
+    - ssl_status
+    - security_headers
+  retention: 30d  # 数据保留时间
+
+# 告警配置
+alerts:
+  enabled: true
+  channels:
+    - email
+    - webhook
+    - slack
+  thresholds:
+    response_time: 1000ms
+    error_rate: 5%
+    connection_count: 1000
+    bandwidth: 100Mbps
+
+# 日志配置
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file: logs/monitor.log
+  max_size: 100MB
+  backup_count: 5
+
+# 安全配置
+security:
+  allowed_ips:
+    - 127.0.0.1
+    - 192.168.1.0/24
+  ssl_verify: true
+  scan_interval: 1h
+  vulnerability_scan: true
+
+# 数据库配置
+database:
+  influxdb:
+    host: localhost
+    port: 8086
+    database: nginx_monitor
+    username: admin
+    password: admin
+  prometheus:
+    host: localhost
+    port: 9090
+
+# API配置
+api:
+  host: 0.0.0.0
+  port: 5000
+  debug: false
+  rate_limit: 100/minute
+  auth_required: true
+
+# 前端配置
+frontend:
+  host: 0.0.0.0
+  port: 8080
+  debug: false
+  theme: dark
+  refresh_interval: 5s 
