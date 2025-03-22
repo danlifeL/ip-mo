@@ -64,8 +64,8 @@
 ### 1. 克隆项目
 
 ```bash
-git clone https://github.com/yourusername/ip-monitor.git
-cd ip-monitor
+git clone https://github.com/danlifeL/ip-mo.git
+cd ip-mo
 ```
 
 ### 2. 后端设置
